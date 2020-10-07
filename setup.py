@@ -89,6 +89,7 @@ extras["tf-cpu"] = [
 extras["torch"] = ["torch>=1.0"]
 extras["flax"] = ["jaxlib==0.1.55", "jax>=0.2.0", "flax==0.2.2"]
 extras["onnxruntime"] = ["onnxruntime>=1.4.0", "onnxruntime-tools>=1.4.2"]
+extras["modelcreation"] = ["cookiecutter==1.7.2"]
 
 extras["serving"] = ["pydantic", "uvicorn", "fastapi", "starlette"]
 extras["all"] = extras["serving"] + ["tensorflow", "torch"]
@@ -99,7 +100,9 @@ extras["testing"] = ["pytest", "pytest-xdist", "timeout-decorator", "parameteriz
 # sphinx-rtd-theme==0.5.0 introduced big changes in the style.
 extras["docs"] = ["recommonmark", "sphinx", "sphinx-markdown-tables", "sphinx-rtd-theme==0.4.3", "sphinx-copybutton"]
 extras["quality"] = ["black >= 20.8b1", "isort >= 5.5.4", "flake8 >= 3.8.3"]
-extras["dev"] = extras["testing"] + extras["quality"] + extras["ja"] + ["scikit-learn", "tensorflow", "torch", "sentencepiece!=0.1.92"]
+extras["dev"] = extras["testing"] + extras["quality"] + extras["ja"] + extras["modelcreation"] + [
+    "scikit-learn", "tensorflow", "torch", "sentencepiece!=0.1.92"
+]
 
 setup(
     name="transformers",
